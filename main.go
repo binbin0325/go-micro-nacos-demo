@@ -22,15 +22,13 @@ func main() {
 	addrs[0] = "192.168.23.178:8848"
 	registry := nacos.NewRegistry(func(options *registry.Options) {
 		options.Addrs = addrs
-	}) //a default to using env vars for master API
-
+	})
 	service := micro.NewService(
 		// Set service name
 		micro.Name("my.service"),
 		// Set service registry
 		micro.Registry(registry),
 	)
-	service.Init()
 	helloworld.RegisterGreeterHandler(service.Server(), new(Helloworld))
 	service.Run()
 }
