@@ -19,7 +19,7 @@ func (e *Helloworld) Hello(ctx context.Context, req *helloworld.HelloRequest, rs
 }
 func main() {
 	addrs := make([]string, 1)
-	addrs[0] = "192.168.23.178:8848"
+	addrs[0] = "192.168.31.57:8848"
 	registry := nacos.NewRegistry(func(options *registry.Options) {
 		options.Addrs = addrs
 	})
